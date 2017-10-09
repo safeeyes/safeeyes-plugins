@@ -1,0 +1,29 @@
+{
+    "meta": {
+        "name": "Weather",
+        "description": "Show the current weather on break screen",
+        "version": "0.0.1"
+    },
+    "dependencies": {
+        "python_modules": ["pyowm"],
+        "shell_commands": [],
+        "operating_systems": [],
+        "desktop_environments": [],
+        "resources": []
+    },
+    "settings": [
+        {
+            "id": "api",
+            "label": "OpenWeatherMap API Key",
+            "type": "TEXT",
+            "default": ""
+        },
+        {
+            "id": "location",
+            "label": "Location",
+            "type": "TEXT",
+            "default": "London,UK"
+        }
+    ],
+    "break_override_allowed": true
+}
