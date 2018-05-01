@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-Show health statistics on the break screen.
+Show the current weather on break screen.
 """
 
 import logging
