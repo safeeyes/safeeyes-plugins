@@ -22,21 +22,21 @@ I welcome Safe Eyes users to write their own custom plugins and share them here 
 
 1. Clone this repository
 
-```sh
-git clone https://github.com/safeeyes/safeeyes-plugins.git
-```
+    ```sh
+    git clone https://github.com/safeeyes/safeeyes-plugins.git
+    ```
 
 2. Create a new folder `~/.config/safeeyes/plugins` if it does not exist already.
 
-```sh
-mkdir ~/.config/safeeyes/plugins
-```
+    ```sh
+    mkdir ~/.config/safeeyes/plugins
+    ```
 
 3. Copy the desired plugin folder to the above directory.
 
-```sh
-cp -r ./safeeyes-plugins/weather ~/.config/safeeyes/plugins/weather
-```
+    ```sh
+    cp -r ./safeeyes-plugins/weather ~/.config/safeeyes/plugins/weather
+    ```
 
 4. Restart Safe Eyes
 
@@ -45,3 +45,6 @@ cp -r ./safeeyes-plugins/weather ~/.config/safeeyes/plugins/weather
 **Notice:**
 I try my best to manually analyze the plugins submitted by other developers to ensure that they don't misuse the plugin. I hope other users using Safe Eyes also will keep an eye on this. Anyhow as everything is under GPL v3 license, the plugins are distributed WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
+## Third-party Plugins
+
+- [log-activity](https://github.com/seekM/safeeyes-plugin-log-activity) - Show the number of keystrokes and minutes spent in front of your computer
