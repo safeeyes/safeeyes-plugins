@@ -16,6 +16,16 @@ I welcome Safe Eyes users to write their own custom plugins and share them here 
 
 3. The plugin should be highly cohesive. If you have several ideas, develop them as individual plugins.
 
+### Best Practices
+
+- Use `24x24` pixel `png` images for plugin icon and tray action icon
+- Use `#acacac` color for tray action icon
+- Use `#000000` color for plugin icon
+
+> I highly recommend exporting Font Awesome icons to png using this nifty tool: [http://fa2png.io](http://fa2png.io) for all your icons.
+
+If you are providing a tray action (a button on the top right corner of the break screen), place the tray action icon as `<plugin-path>/resource/<icon-name>.png`. Please check the official [Screensaver](https://github.com/slgobinath/SafeEyes/tree/master/safeeyes/plugins/screensaver) plugin for better understanding.
+
 ## Users
 
 ### Installation
