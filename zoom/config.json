@@ -2,7 +2,7 @@
     "meta": {
         "name": "Zoom",
         "description": "Skip breaks while in Zoom meetings",
-        "version": "0.0.1"
+        "version": "0.1"
     },
     "dependencies": {
         "python_modules": [],

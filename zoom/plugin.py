@@ -39,6 +39,24 @@ def init(ctx, safeeyes_config, plugin_config):
     global context
     logging.debug('Initialize Zoom plugin')
     context = ctx
+    try:
+        # Attempt to change the order of on_pre_break plugins so that
+        # the zoom plugin occurs before the notification plugin to avoid
+        # seeing break notifications while in Zoom meetings.
+        # The SafeEyes and PluginManager class instances are not
+        # provided to plugins in any form except through non-public
+        # references attached to closures provided by api references.
+        # This works in CPython, but it is a hack, so any errors that
+        # might occur are logged and ignored.
+        safeeyes = ctx['api']['show_about'].__closure__[0].cell_contents
+        on_pre_break = safeeyes.plugins_manager._PluginManager__plugins_on_pre_break
+        for i, plugin in enumerate(on_pre_break):
+            if plugin['id'] == 'zoom':
+                on_pre_break.insert(0, on_pre_break.pop(i))
+                break
+        logging.debug('on_pre_break plugin order: %r', [i['id'] for i in on_pre_break])
+    except Exception:
+        logging.exception('Error updating the order of on_pre_break plugins')
 
 
 def on_pre_break(break_obj):
