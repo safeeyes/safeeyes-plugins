@@ -13,8 +13,8 @@
 
 """Zoom plugin skips breaks while in zoom meetings."""
 
-import ast
 import logging
+import re
 import subprocess
 
 
@@ -25,11 +25,11 @@ def in_zoom_meeting():
     for name in ['Zoom Meeting', 'as_toolbar']:
         try:
             stdout = subprocess.check_output(
-                ['xprop', '-name', name, 'WM_CLASS'], encoding='utf-8')
+                ['xprop', '-name', name, 'WM_CLASS'], encoding='utf-8').rstrip()
         except subprocess.CalledProcessError:
             continue
         logging.debug('Found a window named {!r}, {!r}'.format(name, stdout))
-        if stdout == 'WM_CLASS(STRING) = "zoom", "zoom"\n':
+        if re.match(r'^WM_CLASS\(STRING\) = "\s*zoom\s*"', stdout, flags=re.IGNORECASE):
             logging.debug('In a Zoom meeting')
             return True
     return False
