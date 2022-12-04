@@ -38,7 +38,7 @@ def init(ctx, safeeyes_config, plugin_config):
 
 
 def on_pre_break(break_obj):
-    return True
+    return False
 
 
 def on_start_break(break_obj):
