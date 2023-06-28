@@ -1,0 +1,16 @@
+{
+    "meta": {
+        "name": "System Notifications",
+        "description": "Use minimalistic system notifications without blocking the screen",
+        "version": "0.2"
+    },
+    "dependencies": {
+        "python_modules": [],
+        "shell_commands": ["notify-send"],
+        "operating_systems": [],
+        "desktop_environments": [],
+        "resources": []
+    },
+    "settings": [],
+    "break_override_allowed": true
+}
