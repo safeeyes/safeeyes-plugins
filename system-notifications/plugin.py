@@ -21,20 +21,20 @@ import pathlib
 
 
 context = None
-short_break_interval = None
-long_break_interval = None
+short_break_duration = None
+long_break_duration = None
 
 
 
 def init(ctx, safeeyes_config, plugin_config):
     global context
-    global short_break_interval
-    global long_break_interval
-    
+    global short_break_duration
+    global long_break_duration
+
     logging.debug('Initialize System Notifications plugin')
     context = ctx
-    short_break_interval = safeeyes_config.get('short_break_interval')
-    long_break_interval = safeeyes_config.get('long_break_interval')
+    short_break_duration = safeeyes_config.get('short_break_duration')
+    long_break_duration = safeeyes_config.get('long_break_duration')
 
 
 def on_pre_break(break_obj):
@@ -43,23 +43,19 @@ def on_pre_break(break_obj):
 
 def on_start_break(break_obj):
     # blocking default notifications and executing a system's default CLI command to run system notifications
-    global short_break_interval
-    global long_break_interval
-    
-    # notification_expire_time = short_break_interval if break_obj.is_short_break() else long_break_interval
+    global short_break_duration
+    global long_break_duration
+
     break_type = 'Short break' if break_obj.is_short_break() else 'Long break'
 
-    # removing time from the popup to detach from time, reduce stress and keep this as a simple gentle notification
-    # message = break_obj.name + "\n" + 'for ' + str(notification_expire_time) + ' seconds'
-    
-    notification_expire_time = '3' if break_obj.is_short_break() else '10'
+    notification_expire_time = short_break_duration if break_obj.is_short_break() else long_break_duration
 
     message = break_obj.name
     icon = str(pathlib.Path(__file__).parent.resolve()) + '/system-notification-icon.png'
-    
+
     subprocess.Popen([
-    'notify-send', 
-    	'--expire-time', notification_expire_time,
+    'notify-send',
+    	'--expire-time', str(notification_expire_time*1000), # miliseconds are expected
     	'--icon', icon,
     	'--urgency', 'low',
     	'--hint' , 'int:transient:1', # don't save in notification history
