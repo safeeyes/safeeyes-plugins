@@ -1,0 +1,47 @@
+{
+    "meta": {
+        "name": "Intelligent Dynamic Break Messages",
+        "description": "Display dynamic messages during breaks, optionally using Ollama",
+        "version": "0.1"
+    },
+    "dependencies": {
+        "python_modules": [],
+        "shell_commands": ["ollama"],
+        "operating_systems": [],
+        "desktop_environments": [],
+        "resources": []
+    },
+    "settings": [
+        {
+            "id": "use_ollama",
+            "label": "Generate messages dynamically with Ollama",
+            "type": "TEXT",
+            "default": "false"
+        },
+        {
+            "id": "message_file_path",
+            "label": "Path to the message file",
+            "type": "TEXT",
+            "default": "/tmp/safeeyes_message.txt"
+        },
+        {
+            "id": "ollama_model",
+            "label": "Ollama model to use",
+            "type": "TEXT",
+            "default": "tinyllama:latest"
+        },
+        {
+            "id": "ollama_prompt",
+            "label": "Prompt for Ollama",
+            "type": "TEXT",
+            "default": "Tell me a very short interesting fact."
+        },
+        {
+            "id": "ollama_system_prompt",
+            "label": "System prompt for Ollama",
+            "type": "TEXT",
+            "default": "You are a helpful assistant."
+        }
+    ],
+    "break_override_allowed": true
+}
