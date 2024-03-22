@@ -1,0 +1,23 @@
+{
+    "meta": {
+        "name": "Dynamic Break Messages",
+        "description": "Display dynamic messages during breaks",
+        "version": "0.1"
+    },
+    "dependencies": {
+        "python_modules": [],
+        "shell_commands": [],
+        "operating_systems": [],
+        "desktop_environments": [],
+        "resources": []
+    },
+    "settings": [
+        {
+            "id": "message_file_path",
+            "label": "Path to the message file",
+            "type": "TEXT",
+            "default": "/tmp/safeeyes_message.txt"
+        }
+    ],
+    "break_override_allowed": true
+}
